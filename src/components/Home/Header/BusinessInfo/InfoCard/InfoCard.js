@@ -7,7 +7,7 @@ const InfoCard = (props) => {
         <div className='col-md-3'  style={{margin:'0px 0px'}}>
             <div className='d-flex text-white' style={{backgroundColor:backgroundColor,padding:'30px 50px'}}>
                 <div >
-                    <FontAwesomeIcon icon={icon} />
+                    <FontAwesomeIcon icon={icon} color='white' size="3x"/>
                 </div>
                 <div> 
                     <h6>{title}</h6>
