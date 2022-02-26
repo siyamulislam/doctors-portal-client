@@ -26,10 +26,12 @@ const BusinessInfo = () => {
         },
     ]
     return (
-       <section className='row'>
-           {
+       <section className='row   d-flex justify-content-center'>
+          <div className='w-75 row ' >
+          {
                infoData.map(info=><InfoCard info={info} key={info.title}></InfoCard>)
            }
+          </div>
        </section>
     );
 };
