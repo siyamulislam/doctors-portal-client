@@ -1,0 +1,7 @@
+.card-Container{
+    height: 110px;
+    padding: 30px;
+    display: inline-block;
+      justify-content: center;
+      align-items: center;
+    }

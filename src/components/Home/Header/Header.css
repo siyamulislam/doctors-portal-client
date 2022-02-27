@@ -1,7 +1,7 @@
 .header-container {
     background-image: url('../../../images/bg.png' );
     background-size: contain;
-    height:700px;  
+    height:800px;  
     position:relative; 
 }
 .header-container::after {
