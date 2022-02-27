@@ -1,0 +1,21 @@
+.ServiceDetailsContainer  {
+      width: 90%;
+     margin: 100px 0px ;
+     
+    }
+.ServiceDetailsContainer  p { 
+      margin: 40px 0px;
+      text-align: justify;
+      
+     
+    }
+.ServiceDetailsContainer button{
+    background-color:#15D1C7 ; 
+    font-weight: 600;
+    padding: 15px 50px;
+    margin-top: 40px;
+    }
+.ServiceDetailsContainer h2{ 
+    font-weight: 350; 
+    text-align: left;
+    }
