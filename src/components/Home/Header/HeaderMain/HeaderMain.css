@@ -1,8 +1,7 @@
 .header-main  h1{
 color:#1C2C43 ; 
 }
-.header-main  button{
-background-color:#15D1C7 ; 
+.header-main  button{ 
 font-weight: 600;
 padding: 15px 25px;
 }
