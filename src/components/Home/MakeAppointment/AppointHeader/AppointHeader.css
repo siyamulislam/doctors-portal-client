@@ -1,29 +1,24 @@
-  
- 
-.header-main{
+.ap-header-main{
     background-image: url('../../../../images/bg.png' );
     background-size: contain;
-    height:800px;  
-    position:relative; 
+    height:800px;   
 }
-.header-main h1{
+.ap-header-main h1{
     color:#203047;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 } 
 
-element.style {
-    flex: 0 0 14.2857%;
-    overflow: hidden;
-}
 .react-calendar button:enabled:hover {
     cursor: pointer;
 }
+/* today */
 .react-calendar__tile--active {
     background-image:  linear-gradient(to right, #19D3AE , #0FCFEC)  !important; 
     color: rgb(255, 255, 255) !important;
     transition: color 0.5s linear !important;
      }
-.react-calendar__tile--active:enabled:hover { 
+.react-calendar__tile--active:hover { 
     color: rgb(227, 226, 228) !important;
     background-image:  linear-gradient(to left, #19D3AE , #0FCFEC)  !important;
      }
+
