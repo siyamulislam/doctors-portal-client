@@ -1,55 +1,23 @@
 import React, { useContext } from 'react';
-// import { useHistory, useLocation } from 'react-router-dom';
 import LoginBg from '../../images/login.png';
 import { UserContext } from '../../App.js';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { initializeApp } from 'firebase/app';
-import firebaseConfig from './firebaseConfig';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-const provider = new GoogleAuthProvider();
+import { handelGoogleSignIn } from './loginManager'
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
   const navigate = useNavigate();
   const { state } = useLocation();
+  const googleSignIn=()=>{
+    handelGoogleSignIn()
+    .then(res=> {
+      setLoggedInUser(res);
+      navigate(state?.path || "/")
+    })
+  }
 
-  const handelLogin = () => {
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            // The signed-in user info.
-            const user = result.user;
-              console.log(user );
-            const { displayName, email, photoURL } = user;
-            const signInUser = { name: displayName, email, url: photoURL };
-            setLoggedInUser(signInUser);
-            storeAuthToken();
-            
-        }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.email;
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            // ...
-        });
-}
-const storeAuthToken = () => {
-    auth.currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
-        // Send token to your backend via HTTPS 
-        sessionStorage.setItem('token', idToken)
-        navigate(state?.path || "/")
-
-    }).catch(function (error) {
-        // Handle error
-    });
-}
 
   return (
     <div className="login-page container">
@@ -70,7 +38,7 @@ const storeAuthToken = () => {
           <div className="from-group mt-5">
             <button className="btn btn-primary" onClick={() => {
               console.log('login')
-              handelLogin()
+              googleSignIn()
             }
             }>Google Sign in</button>
           </div>
