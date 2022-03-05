@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"; 
+import { useNavigate } from 'react-router-dom';
 const customStyles = {
     content: {
         top: '50%',
@@ -14,15 +15,19 @@ const customStyles = {
 Modal.setAppElement('#root');
 const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const navigate = useNavigate(); 
+    const onSubmit = data => {
+        console.log(data); 
+         navigate( "/orders"); 
+
+    };
     return (
         <div>
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={customStyles}
-                contentLabel="Example Modal"
-            >
+                contentLabel="Example Modal">
                 <h2 className="text-center text-primary">{appointmentOn}</h2>
                 <p className="text-secondary text-center"><small>ON {date}</small></p>
 
@@ -52,11 +57,11 @@ const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
 
                         </div>
                         <div className="col-4">
-                            <input className="form-control"  {...register("age", { required: true })} name="age" placeholder="Your Age" type="number" />
-                            {errors.age && <span className="text-danger">This field is required</span>}
+                            <input className="form-control"  {...register("age", { required: true })} name="age" defaultValue={24} placeholder="Your Age" type="number" />
+                            {errors.age && <span className="text-danger" >This field is required</span>}
                         </div>
                         <div className="col-4">
-                            <input className="form-control" name="weight" placeholder="Weight" type="number" />
+                            <input className="form-control" name="weight" defaultValue={74} placeholder="Weight" type="number" />
                             {errors.weight && <span className="text-danger">This field is required</span>}
                         </div>
                     </div>
@@ -67,9 +72,6 @@ const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
                         <button type="submit" className="btn btn-primary">Send</button>
                     </div>
                 </form>
-
-
-
 
             </Modal>
         </div>
