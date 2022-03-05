@@ -1,5 +1,5 @@
 .ap-header-main{
-    background-image: url('../../../../images/bg.png' );
+    background-image: url('../../../images/bg.png' );
     background-size: contain;
     height:800px;   
 }

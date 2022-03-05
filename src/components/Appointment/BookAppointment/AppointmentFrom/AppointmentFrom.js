@@ -13,7 +13,7 @@ const customStyles = {
 };
 Modal.setAppElement('#root');
 const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     return (
         <div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import AppointHeader from '../Home/MakeAppointment/AppointHeader/AppointHeader';
-import BookAppointment from '../Home/MakeAppointment/BookAppointment/BookAppointment';
+import AppointHeader from './AppointHeader/AppointHeader'; 
+import BookAppointment from './BookAppointment/BookAppointment';
 import Footer from '../Shared/Footer/Footer';
 import Navbar from '../Shared/Navbar/Navbar';
 
