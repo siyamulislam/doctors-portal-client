@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import { useForm } from "react-hook-form"; 
+import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 const customStyles = {
     content: {
@@ -15,10 +15,24 @@ const customStyles = {
 Modal.setAppElement('#root');
 const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
     const onSubmit = data => {
-        console.log(data); 
-         navigate( "/orders"); 
+        data.service = appointmentOn;
+        data.date = date;
+        data.created = new Date();
+        fetch('http://localhost:5000/addAppointments', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+
+        })
+            .then(res => res.json())
+            .then(success => {
+                if (success) {
+                    closeModal()
+                    navigate("/orders");
+                }
+            })
 
     };
     return (

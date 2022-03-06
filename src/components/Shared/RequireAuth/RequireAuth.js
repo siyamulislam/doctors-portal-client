@@ -4,10 +4,8 @@ import { UserContext } from '../../../App';
 const RequireAuth = ({ children, ...rest }) => {
     const [loggedInUser] = useContext(UserContext);
     const auth = loggedInUser.isSignedIn;
-    console.log(auth)
     const location = useLocation();
-     console.log(location);
-     console.log('hey im req auth');
+    console.log(location);
     return (
         auth ? children
             : <Navigate to="/login"
