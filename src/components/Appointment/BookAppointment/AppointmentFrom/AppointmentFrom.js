@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../../App';
 // import RequireAuth from '../../../Shared/RequireAuth/RequireAuth';
 const customStyles = {
@@ -16,10 +15,11 @@ const customStyles = {
 };
 Modal.setAppElement('#root');
 const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
+    console.log(date);
+    console.log(new Date());
+    const appointDateMod= date.toLocaleString('en-us',{month:'long',day:'numeric'})+','+date.getFullYear(); 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    // console.log(loggedInUser);
-    const navigate = useNavigate();
     const onSubmit = data => {
         data.service = appointmentOn;
         data.date = date;
@@ -37,8 +37,6 @@ const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
                    // navigate("/dashboard/appointments");
                 }
             })
-
-
     };
     return (
         <div>
@@ -48,7 +46,7 @@ const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
                 style={customStyles}
                 contentLabel="Example Modal">
                 <h2 className="text-center text-primary">{appointmentOn}</h2>
-                <p className="text-secondary text-center"><small>ON {date}</small></p>
+                <p className="text-secondary text-center"><small>ON {appointDateMod}</small></p>
 
                 <form className="p-5" onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
@@ -88,7 +86,7 @@ const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
 
                         <button onClick={closeModal} type="close" className="btn btn-danger mr-3">close</button>
                         <button type="submit" className="btn btn-primary">Send</button>
-                        {/* <RequireAuth><button type="submit" className="btn btn-primary">Send</button></Re quireAuth> */}
+                        {/* <RequireAuth><button type="submit" className="btn btn-primary">Send</button></RequireAuth> */}
                     </div>
                 </form>
 

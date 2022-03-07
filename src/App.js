@@ -16,11 +16,10 @@ function App() {
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
-        {/* <Header></Header>  */}
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard/appointments" element={<RequireAuth><DashBoard /></RequireAuth>} />
+          <Route path="/dashboard" element={<RequireAuth><DashBoard/></RequireAuth>} />
           <Route path="/appointment" element={<Appointment />} />
         </Routes>
       </Router>

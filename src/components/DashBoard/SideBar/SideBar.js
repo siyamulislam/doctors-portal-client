@@ -20,10 +20,8 @@ const SideBar = () => {
     return (
         <div>
             <h2>Dashboard</h2>
-            <h2>Dashboard</h2>
-            <h2>Dasrtgrtfgfdgfhboard</h2>
-            <h2>Dashboard</h2>
-            <h2>Dashbogfgfgfard</h2>
+            <h2>Dashboard</h2> 
+            <h2>Dashboard</h2> 
           <button onClick={() => signOut()}>Sign Out</button>
         </div>
     );

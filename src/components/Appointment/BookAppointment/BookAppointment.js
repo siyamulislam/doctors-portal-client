@@ -54,10 +54,10 @@ const BookAppointment = ({date}) => {
             
             <h1 className='text-primary mt-5'>Available Appointments on {appointDateMod }</h1>
             
-            <h4 className='text-primary mb-3'><Link to='/dashboard/appointments'>Appointment Dashboard</Link></h4>
+            <h4 className='text-primary mb-3'><Link to='/dashboard'>Appointment Dashboard</Link></h4>
             <div className="row">
                 {
-                    bookingData.map(booking=> <BookingCard booking={booking} date={appointDateMod} key={booking.id}></BookingCard>)
+                    bookingData.map(booking=> <BookingCard booking={booking} date={date} key={booking.id}></BookingCard>)
                 }
                 </div>
         </section>

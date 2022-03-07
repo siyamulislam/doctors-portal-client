@@ -18,8 +18,6 @@ const Login = () => {
         navigate(state?.path || "/")
       })
   }
-
-
   return (
     <div className="login-page container">
       <div className="row align-items-center" style={{ height: "100vh" }}>
