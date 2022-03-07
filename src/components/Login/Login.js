@@ -3,19 +3,20 @@ import LoginBg from '../../images/login.png';
 import { UserContext } from '../../App.js';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { handelGoogleSignIn } from './loginManager'
+import { handelGoogleSignIn, initializeLoginFramework } from './loginManager'
+initializeLoginFramework()
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
   const navigate = useNavigate();
   const { state } = useLocation();
-  const googleSignIn=()=>{
+  const googleSignIn = () => {
     handelGoogleSignIn()
-    .then(res=> {
-      setLoggedInUser(res);
-      navigate(state?.path || "/")
-    })
+      .then(res => {
+        setLoggedInUser(res);
+        navigate(state?.path || "/")
+      })
   }
 
 

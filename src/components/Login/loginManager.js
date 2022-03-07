@@ -41,9 +41,9 @@ export const initializeLoginFramework = () => {
     const auth = getAuth();
     const signOutUser = {
       isSignedIn: false,
-      // name: '',
-      // email: '',
-      // url: '',
+       name: '',
+       email: '',
+       url: '',
       error: '',
       isSuccess: false,
     }

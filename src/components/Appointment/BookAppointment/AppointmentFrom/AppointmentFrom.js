@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../../../App';
+// import RequireAuth from '../../../Shared/RequireAuth/RequireAuth';
 const customStyles = {
     content: {
         top: '50%',
@@ -14,7 +16,9 @@ const customStyles = {
 };
 Modal.setAppElement('#root');
 const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
+    // console.log(loggedInUser);
     const navigate = useNavigate();
     const onSubmit = data => {
         data.service = appointmentOn;
@@ -22,17 +26,18 @@ const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
         data.created = new Date();
         fetch('http://localhost:5000/addAppointments', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
-
         })
             .then(res => res.json())
             .then(success => {
                 if (success) {
                     closeModal()
-                    navigate("/orders");
+                    alert("Your Appointment added Successfully!")
+                   // navigate("/dashboard/appointments");
                 }
             })
+
 
     };
     return (
@@ -47,16 +52,15 @@ const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
 
                 <form className="p-5" onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
-                        <input type="text" {...register("name", { required: true })} name="name" placeholder="Your Name" className="form-control" />
+                        <input type="text" {...register("name", { required: true })} name="name" placeholder="Your Name" defaultValue={loggedInUser.name} className="form-control" />
                         {errors.name && <span className="text-danger">This field is required</span>}
-
                     </div>
                     <div className="form-group">
-                        <input type="text"  {...register("phone", { required: false })} name="phone" placeholder="Phone Number" className="form-control" />
+                        <input type="text"  {...register("phone", { required: false })} name="phone" placeholder="Phone Number" defaultValue={loggedInUser.phone} className="form-control" />
                         {errors.phone && <span className="text-danger">This field is required</span>}
                     </div>
                     <div className="form-group">
-                        <input type="text"  {...register("email", { required: true })} name="email" placeholder="Email" className="form-control" />
+                        <input type="text"  {...register("email", { required: true })} name="email" placeholder="Email" defaultValue={loggedInUser.email} className="form-control" />
                         {errors.email && <span className="text-danger">This field is required</span>}
                     </div>
                     <div className="form-group row">
@@ -84,6 +88,7 @@ const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
 
                         <button onClick={closeModal} type="close" className="btn btn-danger mr-3">close</button>
                         <button type="submit" className="btn btn-primary">Send</button>
+                        {/* <RequireAuth><button type="submit" className="btn btn-primary">Send</button></Re quireAuth> */}
                     </div>
                 </form>
 

@@ -1,4 +1,5 @@
- import "./BookAppointment.css"
+ import { Link } from "react-router-dom";
+import "./BookAppointment.css"
 import BookingCard from "./BookingCard/BookingCard";
 
 const BookAppointment = ({date}) => { 
@@ -50,7 +51,10 @@ const BookAppointment = ({date}) => {
     ]
     return (
         <section className='text-center container'>
-            <h1 className='text-primary my-5'>Available Appointments on {appointDateMod }</h1>
+            
+            <h1 className='text-primary mt-5'>Available Appointments on {appointDateMod }</h1>
+            
+            <h4 className='text-primary mb-3'><Link to='/dashboard/appointments'>Appointment Dashboard</Link></h4>
             <div className="row">
                 {
                     bookingData.map(booking=> <BookingCard booking={booking} date={appointDateMod} key={booking.id}></BookingCard>)
