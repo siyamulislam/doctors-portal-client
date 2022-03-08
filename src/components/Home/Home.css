@@ -1,6 +1,9 @@
 .text-primary  {
     color: #5FC7C7 !important;
 } 
+.text-primary_dark  {
+     color: #1C2C43 ;
+} 
 .btn-primary{
     background-image:  linear-gradient(to right, #19D3AE , #0FCFEC)  !important;
     border-color:transparent  !important; 

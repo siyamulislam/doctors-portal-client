@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { handelSignOut, initializeLoginFramework } from '../../Login/loginManager';
 import { UserContext } from '../../../App.js';
 import { useNavigate } from 'react-router-dom';
+import './SideBar.css'
 initializeLoginFramework()
 const SideBar = () => {
     const [loggedInUser, setLoggedInUser] = useState(UserContext);
@@ -18,7 +19,7 @@ const SideBar = () => {
             }) 
     }
     return (
-        <div>
+        <div className=''>
             <h2>Dashboard</h2>
             <h2>Dashboard</h2> 
             <h2>Dashboard</h2> 

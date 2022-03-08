@@ -1,5 +1,38 @@
-.containerStyle{ 
-    background-image:  linear-gradient(to bottom, #19D3AE , #0FCFEC) !important ;
-    /* background-color: blueviolet; */
+.containerStyle{  
+    background-color: #F4FDFB;
+    height: 100vh;
+}
+/* ~~~~~~~~~~~~~~~~~~~~col 1~~~~~~~~~~~~~~~~~~~~~~~ */
+.sidebarContainer{ 
+    background-image:  linear-gradient(to bottom, #19D3AE , #0FCFEC) ;
+    color: white;
+    padding-top: 60px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~col 2~~~~~~~~~~~~~~~~~~~~~~~ */
+.AppointmentsContainer{ 
+    display: flex; 
+}
+.AppointmentsComponents{ 
+    margin: 70px 0px; 
+    width: 100%; 
+	box-shadow: 0 0 10px #d9ebf5;
+    background-color: white;
+}
+/* ~~~~~~~~~~~~~~~~~~col 3~~~~~~~~~~~~~~~~~~~~~~~ */
+.AppointmentsListDateContainer{ 
+    display: flex; 
+}
+.AppointmentsListDateComponents{
+    margin: 70px 0px;
+    background-color: white;
+	box-shadow: 0 0 10px #d9ebf5;
+    width: 100%; 
+}
+ /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.AppointmentsComponents .react-calendar {
+	border: 0;
+	/* box-shadow: 0 0 10px #f1eded; */
+	padding: 5%;
+	width: 100%;
     height: 100%;
 }

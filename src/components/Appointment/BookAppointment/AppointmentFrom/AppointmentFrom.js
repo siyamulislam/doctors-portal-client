@@ -15,8 +15,6 @@ const customStyles = {
 };
 Modal.setAppElement('#root');
 const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
-    console.log(date);
-    console.log(new Date());
     const appointDateMod= date.toLocaleString('en-us',{month:'long',day:'numeric'})+','+date.getFullYear(); 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -83,7 +81,6 @@ const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
                     </div>
 
                     <div className="form-group text-right">
-
                         <button onClick={closeModal} type="close" className="btn btn-danger mr-3">close</button>
                         <button type="submit" className="btn btn-primary">Send</button>
                         {/* <RequireAuth><button type="submit" className="btn btn-primary">Send</button></RequireAuth> */}
