@@ -5,8 +5,7 @@
 /* ~~~~~~~~~~~~~~~~~~~~col 1~~~~~~~~~~~~~~~~~~~~~~~ */
 .sidebarContainer{ 
     background-image:  linear-gradient(to bottom, #19D3AE , #0FCFEC) ;
-    color: white;
-    padding-top: 60px;
+    color: white; 
 }
 /* ~~~~~~~~~~~~~~~~~~~~col 2~~~~~~~~~~~~~~~~~~~~~~~ */
 .AppointmentsContainer{ 

@@ -1,1 +1,17 @@
- 
+.sidebar {  
+    min-height: 100vh;  
+    padding: 80px 0px 70px 0px;
+}
+.sidebar li {
+	margin-bottom: 2em;
+}
+.sidebar li:hover span {
+	display: inline-block;
+	transform: translate(5px);
+}
+.sidebar svg {
+	margin-right: 5px;
+}
+.dashHeader {
+	font-weight: 500;
+}
