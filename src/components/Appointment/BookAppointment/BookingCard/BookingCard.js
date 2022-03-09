@@ -1,5 +1,4 @@
 import React, { useState } from 'react'; 
-import { useNavigate } from 'react-router-dom'; 
 import AppointmentFrom from '../AppointmentFrom/AppointmentFrom';
 
 const BookingCard = ({booking, date}) => {
@@ -18,7 +17,7 @@ const BookingCard = ({booking, date}) => {
                     <h6>{booking.visitingHour}</h6>
                     <p>{booking.totalSpace} SPACES AVAILABLE</p>
                     <button onClick={openModal} className="btn btn-primary text-uppercase">Book Appointment</button> 
-                   <AppointmentFrom modalIsOpen={modalIsOpen} appointmentOn={booking.subject} closeModal={closeModal} date={date}/> 
+                   <AppointmentFrom modalIsOpen={modalIsOpen} appointmentOn={booking.subject} appointmentHour={booking.visitingHour} closeModal={closeModal} date={date}/> 
                 </div>
             </div>
         </div>

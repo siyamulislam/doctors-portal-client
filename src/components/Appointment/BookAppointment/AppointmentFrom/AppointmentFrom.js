@@ -14,12 +14,13 @@ const customStyles = {
     },
 };
 Modal.setAppElement('#root');
-const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
+const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn,appointmentHour, date }) => {
     const appointDateMod= date.toLocaleString('en-us',{month:'long',day:'numeric'})+','+date.getFullYear(); 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         data.service = appointmentOn;
+        data.schedule = appointmentHour;
         data.date = date;
         data.created = new Date();
         fetch('http://localhost:5000/addAppointments', {
