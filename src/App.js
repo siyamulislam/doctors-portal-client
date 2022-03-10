@@ -6,6 +6,7 @@ import { createContext, useState } from 'react';
 import Login from './components/Login/Login';
 import RequireAuth from './components/Shared/RequireAuth/RequireAuth';
 import DashBoard from './components/DashBoard/DashBoard';
+import AddDoctor from './components/DashBoard/AddDoctor/AddDoctor';
 
 export const UserContext = createContext();
 
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<RequireAuth><DashBoard/></RequireAuth>} />
+          <Route path="/dashboard/add-doctor" element={<RequireAuth><AddDoctor/></RequireAuth>} />
           <Route path="/appointment" element={<Appointment />} />
         </Routes>
       </Router>

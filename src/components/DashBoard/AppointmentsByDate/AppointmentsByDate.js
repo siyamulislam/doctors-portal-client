@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 const AppointmentsByDate = ({ appointments, selectedDate }) => {
     console.log(appointments);
     const selectedDateMod = selectedDate.toLocaleString('en-us', { month: 'long', day: 'numeric' }) + ',' + selectedDate.getFullYear();
-    const [visitingStatus,setVisitingStatus]=useState(false);
-		
+    const [visitingStatus, setVisitingStatus] = useState(false);
+
     return (
         <div>
             <div className='d-flex justify-content-between p-4'>
@@ -38,12 +38,12 @@ const AppointmentsByDate = ({ appointments, selectedDate }) => {
                                         <td className="text-center">
                                             <select
                                                 // onClick={() => setSelectAppointment(ap)}
-                                                 onChange={(e) => {
-                                                     visitingStatus? setVisitingStatus(false): setVisitingStatus(true)
+                                                onChange={(e) => {
+                                                    visitingStatus ? setVisitingStatus(false) : setVisitingStatus(true)
 
-                                                  } }
+                                                }}
                                                 className={
-                                                   visitingStatus===true ? (
+                                                    visitingStatus === true ? (
                                                         'btn btn-primary text-capitalize'
                                                     ) : (
                                                         'btn btn-danger text-capitalize'
@@ -51,13 +51,13 @@ const AppointmentsByDate = ({ appointments, selectedDate }) => {
                                                 }
                                             >
                                                 <option
-                                                    selected={ap.visitingStatus === 'Not Visited'}
+                                                    selected={visitingStatus === false}
                                                     className="bg-white text-secondary"
                                                 >
                                                     Not Visited
                                                 </option>
                                                 <option
-                                                    selected={ap.visitingStatus === 'Visited'}
+                                                    selected={visitingStatus === true}
                                                     className="bg-white text-secondary"
                                                 >
                                                     Visited

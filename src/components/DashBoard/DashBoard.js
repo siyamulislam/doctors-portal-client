@@ -25,13 +25,13 @@ const DashBoard = () => {
     // console.log(appointments);
 
     return (
-        <section className='container-fluid row containerStyle'>
+        <section className=' row containerStyle'>
             <div className='col-md-2 sidebarContainer'>
                 <SideBar></SideBar>
             </div>
             <div className="col-md-5 AppointmentsContainer  position-relative">
 
-            <div className='  position-absolute  top-0 start-0 p-3 '><h5 className='text-primary_dark '>Appointments</h5></div>
+            <div className='  position-absolute  top-0 start-0 p-3 pt-4 '><h5 className='text-primary_dark '>Appointments</h5></div>
                 <div className=' AppointmentsComponents'>
                     <Calendar onChange={handelDateChange} value={selectedDate} />
                 </div>

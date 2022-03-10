@@ -1,0 +1,15 @@
+.containerStyle{  
+    background-color: #F4FDFB;
+    height: 100vh;
+}
+/* ~~~~~~~~~~~~~~~~~~~~col 1~~~~~~~~~~~~~~~~~~~~~~~ */
+.sidebarContainer{ 
+    background-image:  linear-gradient(to bottom, #19D3AE , #0FCFEC) ;
+    color: white; 
+}
+.AddDoctorContainer{
+
+}
+.AddDoctorComponents{
+
+}

@@ -4,12 +4,12 @@ import { UserContext } from '../../../App.js';
 import { Link, useNavigate } from 'react-router-dom';
 import './SideBar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faFileAlt, faGripHorizontal, faQuoteLeft, faSignOutAlt, faGear} from '@fortawesome/free-solid-svg-icons';
+import { faCalendarCheck, faFilePrescription, faGripHorizontal, faQuoteLeft, faSignOutAlt, faGear,faUserDoctor} from '@fortawesome/free-solid-svg-icons';
 import logo from '../../../images/logo.png';
 initializeLoginFramework()
 const SideBar = () => {
     const [loggedInUser, setLoggedInUser] = useState(UserContext);
-    const user = sessionStorage.getItem('loggedInUser')
+    // const user = sessionStorage.getItem('loggedInUser')
 
     const navigate = useNavigate();
     const signOut = () => {
@@ -32,23 +32,28 @@ const SideBar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/dashboard/dashboard" className="text-white">
+                    <Link to="/dashboard" className="text-white">
                         <FontAwesomeIcon icon={faGripHorizontal} /><span>Dashboard</span>
                     </Link>
                 </li>
                 <li>
                     <Link to="/dashboard/my-appointment" className="text-white">
-                        <FontAwesomeIcon icon={faCalendar} /><span>My Appointment</span>
+                        <FontAwesomeIcon icon={faCalendarCheck} /><span>My Appointment</span>
                     </Link>
                 </li>
                 <li>
                     <Link to="/dashboard/my-prescriptions" className="text-white">
-                        <FontAwesomeIcon icon={faFileAlt} /><span>My Prescriptions</span>
+                        <FontAwesomeIcon icon={faFilePrescription} /><span>My Prescriptions</span>
                     </Link>
                 </li>
                 <li>
                     <Link to="/dashboard/reviews" className="text-white">
                         <FontAwesomeIcon icon={faQuoteLeft} /><span>Add Review</span>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/dashboard/add-doctor" className="text-white">
+                        <FontAwesomeIcon icon={faUserDoctor} /><span>Add Doctor</span>
                     </Link>
                 </li>
                 <li>
