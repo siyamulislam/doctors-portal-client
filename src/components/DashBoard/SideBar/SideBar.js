@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { handelSignOut, initializeLoginFramework } from '../../Login/loginManager';
 import { UserContext } from '../../../App.js';
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,16 +8,16 @@ import { faCalendarCheck, faFilePrescription, faGripHorizontal, faQuoteLeft, faS
 import logo from '../../../images/logo.png';
 initializeLoginFramework()
 const SideBar = () => {
-    const [loggedInUser, setLoggedInUser] = useState(UserContext);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     // const user = sessionStorage.getItem('loggedInUser')
+    // console.log(loggedInUser);
 
     const navigate = useNavigate();
     const signOut = () => {
         console.log('signOut');
         handelSignOut()
             .then(res => {
-                console.log(res);
-                setLoggedInUser(res)
+                setLoggedInUser({})
                 navigate('/')
             })
     }

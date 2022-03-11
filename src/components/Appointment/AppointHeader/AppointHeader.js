@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import chair from './../../../images/chair.png';
 import Calendar from 'react-calendar';
 import './AppointHeader.css';
 import 'react-calendar/dist/Calendar.css';
 const AppointHeader = ({appointDate,handelDateChange}) => { 
-     console.log(appointDate);
+    //  console.log(appointDate);
     return (
         <main style={{height:'600px'}} className="row d-flex align-items-center ap-header-main">
             <div className="col-md-5 offset-md-1 p-5"> 

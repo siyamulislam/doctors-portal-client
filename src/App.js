@@ -14,6 +14,7 @@ function App() {
   const recentUser = sessionStorage.getItem('loggedInUser')
   const parseUser = JSON.parse(recentUser)
   const [loggedInUser, setLoggedInUser] = useState(parseUser || { isSignedIn: false });
+  // console.log(loggedInUser);
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
