@@ -8,7 +8,7 @@ import { UserContext } from '../../App';
 
 const DashBoard = () => {
     const [loggedInUser,setLoggedInUser]=useContext(UserContext);
-    // console.log(loggedInUser);
+    console.log(loggedInUser);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [appointments, setAppointments] = useState([]);
 
