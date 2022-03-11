@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
 const AppointmentsByDate = ({ appointments, selectedDate }) => {
-    console.log(appointments);
     const selectedDateMod = selectedDate.toLocaleString('en-us', { month: 'long', day: 'numeric' }) + ',' + selectedDate.getFullYear();
-    const [visitingStatus, setVisitingStatus] = useState(false);
+    const [visitingStatus, setVisitingStatus] = useState('notVisited');
 
     return (
         <div>
@@ -32,32 +31,34 @@ const AppointmentsByDate = ({ appointments, selectedDate }) => {
 
                             <tbody>
                                 {appointments.map((ap) => (
-                                    <tr>
+                                    <tr key={ap._id}>
                                         <td>{ap.name}</td>
                                         <td>{ap.schedule}</td>
                                         <td className="text-center">
                                             <select
+                                            
                                                 // onClick={() => setSelectAppointment(ap)}
                                                 onChange={(e) => {
-                                                    visitingStatus ? setVisitingStatus(false) : setVisitingStatus(true)
+                                                    visitingStatus ? setVisitingStatus('notVisited') : setVisitingStatus('visited')
 
                                                 }}
                                                 className={
-                                                    visitingStatus === true ? (
+                                                    visitingStatus === 'visited' ? (
                                                         'btn btn-primary text-capitalize'
                                                     ) : (
                                                         'btn btn-danger text-capitalize'
                                                     )
                                                 }
                                             >
+                                                 <option value="DEFAULT" disabled>Choose a salutation ...</option>
                                                 <option
-                                                    selected={visitingStatus === false}
+                                                    selected={visitingStatus === 'notVisited'}
                                                     className="bg-white text-secondary"
                                                 >
                                                     Not Visited
                                                 </option>
                                                 <option
-                                                    selected={visitingStatus === true}
+                                                    selected={visitingStatus === 'visited'}
                                                     className="bg-white text-secondary"
                                                 >
                                                     Visited

@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Calendar } from 'react-calendar';
 import AppointmentsByDate from './AppointmentsByDate/AppointmentsByDate';
 import SideBar from './SideBar/SideBar';
 import './DashBoard.css'
 import 'react-calendar/dist/Calendar.css';
+import { UserContext } from '../../App';
 
 const DashBoard = () => {
+    const [loggedInUser,setLoggedInUser]=useContext(UserContext);
+    // console.log(loggedInUser);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [appointments, setAppointments] = useState([]);
 
@@ -13,7 +16,7 @@ const DashBoard = () => {
         fetch('http://localhost:5000/appointmentsByDate', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ selectedDate })
+            body: JSON.stringify({ selectedDate , email:loggedInUser.email})
         })
             .then(res => res.json())
             .then(appointment =>setAppointments(appointment))
@@ -38,7 +41,7 @@ const DashBoard = () => {
             </div>
             <div className="col-md-5 AppointmentsListDateContainer">
                 <div className='AppointmentsListDateComponents'>
-                    <AppointmentsByDate appointments={appointments} selectedDate={selectedDate}></AppointmentsByDate>
+                    <AppointmentsByDate key={appointments._id} appointments={appointments} selectedDate={selectedDate}></AppointmentsByDate>
                 </div>
             </div>
         </section>
