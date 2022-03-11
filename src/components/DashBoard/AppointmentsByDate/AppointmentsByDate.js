@@ -36,7 +36,6 @@ const AppointmentsByDate = ({ appointments, selectedDate }) => {
                                         <td>{ap.schedule}</td>
                                         <td className="text-center">
                                             <select
-                                            
                                                 // onClick={() => setSelectAppointment(ap)}
                                                 onChange={(e) => {
                                                     visitingStatus ? setVisitingStatus('notVisited') : setVisitingStatus('visited')
@@ -50,7 +49,7 @@ const AppointmentsByDate = ({ appointments, selectedDate }) => {
                                                     )
                                                 }
                                             >
-                                                 <option value="DEFAULT" disabled>Choose a salutation ...</option>
+                                                 {/* <option value="DEFAULT" disabled>Choose a salutation ...</option>
                                                 <option
                                                     selected={visitingStatus === 'notVisited'}
                                                     className="bg-white text-secondary"
@@ -62,7 +61,7 @@ const AppointmentsByDate = ({ appointments, selectedDate }) => {
                                                     className="bg-white text-secondary"
                                                 >
                                                     Visited
-                                                </option>
+                                                </option> */}
                                             </select>
                                         </td>
                                     </tr>
