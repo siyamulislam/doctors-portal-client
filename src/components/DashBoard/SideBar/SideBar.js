@@ -43,6 +43,7 @@ const SideBar = () => {
         border: '1px solid rgba(0, 0, 0, 0.02)',
         borderWidth: 2,
     }
+    console.log(loggedInUser);
     const imgPath = doctor.image ? `data:image/png;base64,${doctor.image.img}` : `http://localhost:5000/${doctor.img}`
     return (
         <div className="sidebar d-flex flex-column justify-content-between  "  >

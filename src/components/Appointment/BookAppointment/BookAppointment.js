@@ -4,6 +4,7 @@ import BookingCard from "./BookingCard/BookingCard";
 
 const BookAppointment = ({date}) => { 
     // const appointDate= date.toDateString();
+    console.log(date);
     const appointDateMod= date.toLocaleString('en-us',{month:'long',day:'numeric'})+','+date.getFullYear(); 
     const bookingData = [
         {
