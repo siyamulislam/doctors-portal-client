@@ -23,7 +23,7 @@ const AppointmentFrom = ({ modalIsOpen, closeModal, appointmentOn,appointmentHou
         data.schedule = appointmentHour;
         data.date = date;
         data.created = new Date();
-        fetch('http://localhost:5000/addAppointments', {
+        fetch('https://doctors-portal-us.herokuapp.com/addAppointments', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

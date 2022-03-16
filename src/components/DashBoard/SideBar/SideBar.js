@@ -14,7 +14,7 @@ const SideBar = () => {
     const [isAdmin, setAdmin] = useState(false);
     // const user = sessionStorage.getItem('loggedInUser') 
     useEffect(() => {
-        fetch('http://localhost:5000/isDoctor', {
+        fetch('https://doctors-portal-us.herokuapp.com/isDoctor', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
@@ -43,8 +43,7 @@ const SideBar = () => {
         border: '1px solid rgba(0, 0, 0, 0.02)',
         borderWidth: 2,
     }
-    console.log(loggedInUser);
-    const imgPath = doctor.image ? `data:image/png;base64,${doctor.image.img}` : `http://localhost:5000/${doctor.img}`
+    const imgPath = doctor.image ? `data:image/png;base64,${doctor.image.img}` : `https://doctors-portal-us.herokuapp.com/${doctor.img}`
     return (
         <div className="sidebar d-flex flex-column justify-content-between  "  >
 
@@ -52,8 +51,7 @@ const SideBar = () => {
 
                 <img style={profileStyle} src={isDoctor ? imgPath : loggedInUser.url} alt="logo" />
 
-                <li>
-
+                <li> 
                     <span className="text-white dashHeader"> <strong>{loggedInUser.name} </strong> <sub>({isAdmin ? 'Admin' : isDoctor ? 'Doctor' : 'Patient'})</sub></span>
                 </li>
                 <li>
